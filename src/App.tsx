@@ -1,12 +1,17 @@
-import { useState } from 'react'
+import { ApolloProvider } from "@apollo/client";
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import { Router } from "./Router";
+import { client } from "./lib/apollo";
 
-function App() {
+import { Event } from "./pages/Event";
 
+export function App(){
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </ApolloProvider>
   )
 }
-
-export default App
